@@ -3,13 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import 'lib-flexible/flexible.js'
+import store from './store'
 Vue.config.productionTip = false
+
+import animated from 'animate.css' 
+Vue.use(animated)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

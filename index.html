@@ -4,6 +4,35 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>my-blog</title>
+    <style>
+      html,body{
+        margin:0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      body:before {
+          content: '';
+          background-repeat: no-repeat;
+          background-position: center;
+          opacity: 0.42;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          z-index: -1;
+      }
+      body::before {
+        background: url('https://images.alphacoders.com/764/thumb-1920-764854.png')  no-repeat ;
+        background-size: cover;
+      }
+      @media only screen and (max-width: 800px) {
+        body::before {
+          background:  url('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1484778116,3257756228&fm=26&gp=0.jpg')  no-repeat;
+          background-size: cover;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
