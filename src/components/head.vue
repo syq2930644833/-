@@ -1,14 +1,8 @@
 <template>
     <div class="head">
         <div class="menuBox">
-            <div>
-                首页
-            </div>
-            <div>
-                随笔
-            </div>
-            <div>
-                生活
+            <div v-for="(item,index) in navData" :key="item.id" @click="checkNav(index)" :class="checkedIndex == index ? 'activedNav' : '' ">
+                {{item.title}}
             </div>
         </div>
     </div>
@@ -18,7 +12,26 @@
 export default {
     data() {
         return {
-            
+            checkedIndex:0,
+            navData:[
+                {
+                    id:0,
+                    title:'首页'
+                },
+                {
+                    id:1,
+                    title:'随笔' 
+                },
+                {
+                    id:2,
+                    title:'生活'
+                }
+            ]
+        }
+    },
+    methods: {
+        checkNav(index){
+            this.checkedIndex = index
         }
     },
 }
@@ -44,6 +57,9 @@ export default {
         >div{
             width: 120px;
             cursor: pointer;
+        }
+        .activedNav{
+            color: rgb(80, 23, 235);
         }
     }
 }

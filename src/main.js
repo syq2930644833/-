@@ -5,10 +5,15 @@ import App from './App'
 import router from './router'
 import 'lib-flexible/flexible.js'
 import store from './store'
+
 Vue.config.productionTip = false
 
 import animated from 'animate.css' 
 Vue.use(animated)
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 
 /* eslint-disable no-new */
 new Vue({

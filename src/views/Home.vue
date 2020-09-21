@@ -42,8 +42,9 @@ export default {
 
     },
     mounted() {
+        const body = document.getElementsByClassName('body')[0]
         this.viewWidth = document.body.clientWidth
-        this.viewHeight = document.body.clientHeight
+        this.viewHeight = body.clientHeight
         window.addEventListener('scroll',this.handleScroll)
         window.onresize = () => {
             return (() => {
@@ -180,7 +181,7 @@ export default {
         }
     }
     .body{
-        min-height: 100vh;
+        background: pink;
     }
 }
 </style>

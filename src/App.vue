@@ -2,14 +2,16 @@
   <div id="app">
     <Head v-show="headShow" />
     <router-view/>
+    <Foot/>
   </div>
 </template>
 
 <script>
 import Head from './components/head'
+import Foot from './components/footer'
 export default {
   name: 'App',
-  components:{ Head },
+  components:{ Head, Foot },
   data() {
     return {
       
@@ -29,7 +31,8 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
