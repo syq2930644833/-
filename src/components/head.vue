@@ -1,7 +1,7 @@
 <template>
     <div class="head">
         <div class="menuBox">
-            <div v-for="(item,index) in navData" :key="item.id" @click="checkNav(index)" :class="checkedIndex == index ? 'activedNav' : '' ">
+            <div v-for="(item,index) in navData" :key="item.id" @click="checkNav(index)" :class="headIndex == index ? 'activedNav' : '' ">
                 {{item.title}}
             </div>
         </div>
@@ -12,16 +12,15 @@
 export default {
     data() {
         return {
-            checkedIndex:0,
             navData:[
                 {
                     id:0,
                     title:'首页'
                 },
-                {
-                    id:1,
-                    title:'随笔' 
-                },
+                // {
+                //     id:1,
+                //     title:'随笔' 
+                // },
                 {
                     id:2,
                     title:'生活'
@@ -29,9 +28,19 @@ export default {
             ]
         }
     },
+    computed: {
+        headIndex(){
+            return this.$store.getters.headIndex
+        }
+    },
     methods: {
         checkNav(index){
-            this.checkedIndex = index
+            this.$store.dispatch('home/headIndexChange', index)
+            if(index == 1){
+                this.$router.push({path:'/life'})
+            }else if(index == 0){
+                this.$router.push({path:'/'})
+            }
         }
     },
 }

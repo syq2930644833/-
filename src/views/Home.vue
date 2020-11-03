@@ -4,7 +4,7 @@
             <div class="mask"></div>
             <i class="iconfont icon-caidan" @click="clickMenu" v-show="Yoffset < 100" :class="className ? 'animate__hinge' : ''"></i>
             <img class="img" v-show="clientWidth == 1" :src="bgImg" alt="一张图">
-            <img class="img" v-show="clientWidth == 2" :src="bgImg1" alt="一张图">
+            <img class="img" v-show="clientWidth == 2" :src="bgImg" alt="一张图">
             <img class="img" v-show="clientWidth == 3" :src="bgImg2" alt="一张图">
             <div class="information">
                 <h1>壹朵小花吖,</h1>
@@ -13,12 +13,13 @@
             <div class="arrow" @click="clickArrow"></div>
         </div>
         <div class="body">
-
+            <div id="editor"></div>
         </div>
     </div>
 </template>
 
 <script>
+// const Jodit = require('jodit').Jodit
 import { scrollTo } from '../utils/scroll-to'
 import utils from '@/utils/utils'
 export default {
@@ -80,6 +81,8 @@ export default {
          */
         clickArrow(){
             scrollTo(this.viewHeight,2500)
+            // this.$router.push({ path:'/welcome' })
+            // this.$store.dispatch('home/headShowChange', true)
         }
     },
     watch: {
@@ -130,6 +133,7 @@ export default {
     .homeHead{
         position: relative;
         .information{
+            cursor: pointer;
             position: absolute;
             width: 700px;
             height: 500px;
@@ -181,7 +185,7 @@ export default {
         }
     }
     .body{
-        background: pink;
+        min-height: 108vh;
     }
 }
 </style>
