@@ -31,6 +31,7 @@ app.use(bodyParser())
 // 初始化路由中间件`
 app.use(routers.routes()).use(routers.allowedMethods())
 
-console.log('test','test');
 
 module.exports =  app
+// 启动标识
+console.log("Koa运行在：http://127.0.0.1:8088");  

@@ -2,8 +2,6 @@
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
-const app = require('../server/app')
-const appConfig = require('../server/config')
 const merge = require('webpack-merge')
 const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
@@ -90,7 +88,6 @@ module.exports = new Promise((resolve, reject) => {
         ? utils.createNotifierCallback()
         : undefined
       }))
-      app.listen(appConfig.PORT)
       resolve(devWebpackConfig)
     }
   })

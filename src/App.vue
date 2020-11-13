@@ -2,16 +2,14 @@
   <div id="app">
     <Head v-show="headShow" />
     <router-view/>
-    <Foot v-if="footShow" class="foot"/>
   </div>
 </template>
 
 <script>
 import Head from './components/head'
-import Foot from './components/footer'
 export default {
   name: 'App',
-  components:{ Head, Foot },
+  components:{ Head },
   data() {
     return {
       
@@ -44,10 +42,6 @@ export default {
   padding: 0;
   background-color:#eef0f1;
   // opacity: 0.2;
-  .foot{
-    position: absolute;
-    bottom: 0;
-  }
 }
 </style>
 

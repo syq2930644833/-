@@ -2,18 +2,19 @@
     <div class="home">
         <div class="homeHead">
             <div class="mask"></div>
-            <i class="iconfont icon-caidan" @click="clickMenu" v-show="Yoffset < 100" :class="className ? 'animate__hinge' : ''"></i>
+            <!-- <i class="iconfont icon-caidan" @click="clickMenu" v-show="Yoffset < 100" :class="className ? 'animate__hinge' : ''"></i> -->
             <img class="img" v-show="clientWidth == 1" :src="bgImg" alt="一张图">
             <img class="img" v-show="clientWidth == 2" :src="bgImg" alt="一张图">
             <img class="img" v-show="clientWidth == 3" :src="bgImg2" alt="一张图">
             <div class="information">
                 <h1>壹朵小花吖,</h1>
-                <h2>生活虐我千百遍,我待生活如初恋</h2>
+                <h2>淡淡生活，慢慢变老。</h2>
             </div>
             <div class="arrow" @click="clickArrow"></div>
         </div>
         <div class="body">
-            <div id="editor"></div>
+            <home-menu/>
+            <Foot class="foot"/>
         </div>
     </div>
 </template>
@@ -22,7 +23,12 @@
 // const Jodit = require('jodit').Jodit
 import { scrollTo } from '../utils/scroll-to'
 import utils from '@/utils/utils'
+import HomeMenu from '@/components/home.vue'
+import Foot from '@/components/footer'
 export default {
+    components:{
+        HomeMenu, Foot
+    },
     data() {
         return {
             bgImg:require('@/assets/img/bg3.jpg'),
@@ -46,15 +52,15 @@ export default {
         const body = document.getElementsByClassName('body')[0]
         this.viewWidth = document.body.clientWidth
         this.viewHeight = body.clientHeight
-        window.addEventListener('scroll',this.handleScroll)
+        // window.addEventListener('scroll',this.handleScroll)
         window.onresize = () => {
             return (() => {
                 this.viewWidth = document.body.clientWidth
             })()
         }
-        this.$on('hook:beforeDestroy',()=>{
-            window.removeEventListener('scroll',this.handleScroll)
-        })
+        // this.$on('hook:beforeDestroy',()=>{
+        //     window.removeEventListener('scroll',this.handleScroll)
+        // })
     },
 
     methods: {
@@ -69,20 +75,18 @@ export default {
          * 监听滚动条高度
          */
         handleScroll(){
-            this.Yoffset = document.documentElement.scrollTop||document.body.scrollTop
-            if(this.Yoffset < 100){
-                this.$store.dispatch('home/headShowChange', false)
-            }else{
-                this.$store.dispatch('home/headShowChange', true)
-            }
+            // this.Yoffset = document.documentElement.scrollTop||document.body.scrollTop
+            // if(this.Yoffset < 100){
+            //     this.$store.dispatch('home/headShowChange', false)
+            // }else{
+            //     this.$store.dispatch('home/headShowChange', true)
+            // }
         },
         /**
          * 点击箭头向上滑动
          */
         clickArrow(){
-            scrollTo(this.viewHeight,2500)
-            // this.$router.push({ path:'/welcome' })
-            // this.$store.dispatch('home/headShowChange', true)
+            scrollTo(this.viewHeight,1800)
         }
     },
     watch: {
@@ -185,7 +189,12 @@ export default {
         }
     }
     .body{
-        min-height: 108vh;
+        height: 100vh;
+        position: relative;
+        .foot{
+            position: absolute;
+            bottom: 10px;
+        }
     }
 }
 </style>

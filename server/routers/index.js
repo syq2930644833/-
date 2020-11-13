@@ -1,8 +1,11 @@
+const testController =  require('../controller/testController/index')
+console.log('testController: ', testController);
+
 const router = require('koa-router')()
 
+
 const routers = router
-        // 暴露ip
-        // .get('/doc.html', DocController.doc)
+        .get('/v1/exhibition/findAllData', testController.findTest)
 
 
 module.exports = routers
