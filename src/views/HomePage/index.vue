@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import {fetchList} from '../../api/test/index'
 export default {
     data() {
         return {
@@ -16,11 +17,9 @@ export default {
     },
     methods: {
         getdata(){
-            this.axios.get(`/user`).then(res => {
-                    const {data} = res
-                    alert(data + '接口终于通了')
-                }
-            )
+            fetchList().then(res => {
+                console.log(res);
+            })
         }
     },
 }

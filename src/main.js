@@ -15,13 +15,10 @@ Vue.use(animated)
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
-import Vant from 'vant';
-import 'vant/lib/index.css';
 
-Vue.use(Vant);
 
-axios.defaults.baseURL = '/api'
-Vue.prototype.axios = axios;
+// axios.defaults.baseURL = '/api'
+// Vue.prototype.axios = axios;
 
 /* eslint-disable no-new */
 new Vue({
