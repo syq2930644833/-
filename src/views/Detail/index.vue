@@ -87,7 +87,6 @@ export default {
         }
         .introduction{
             font-size: 22px;
-            height: 60px;
             line-height: 60px;
             font-family: -apple-system,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial;
             color: #333;

@@ -7,6 +7,7 @@
             <img class="img" v-show="clientWidth == 2" :src="bgImg" alt="一张图">
             <img class="img" v-show="clientWidth == 3" :src="bgImg2" alt="一张图">
             <div class="information">
+                <!-- <h1>蒿小茜,</h1> -->
                 <h1>壹朵小花吖,</h1>
                 <h2>淡淡生活，慢慢变老。</h2>
             </div>
