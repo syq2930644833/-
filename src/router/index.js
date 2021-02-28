@@ -13,23 +13,30 @@ const router = new Router({
     {
       path: '/exhibition',
       name: 'Exhibition',
-      component: () => import(/* webpackChunkName: "Home" */ '../views/HomePage')
+      component: () => import(/* webpackChunkName: "Exhibition" */ '../views/HomePage')
     },
     {
       path: '/list',
       name: 'List',
-      component: () => import(/* webpackChunkName: "Home" */ '../views/List')
+      component: () => import(/* webpackChunkName: "List" */ '../views/List'),
+      meta:{title:'列表',keepAlive:false}
     },
     {
       path: '/life',
       name: 'Life',
-      component: () => import(/* webpackChunkName: "Home" */ '../views/Life'),
+      component: () => import(/* webpackChunkName: "Life" */ '../views/Life'),
       meta:{title:'生活'}
     },
     {
       path: '/about',
       name: 'About',
-      component: () => import(/* webpackChunkName: "Home" */ '../views/About'),
+      component: () => import(/* webpackChunkName: "About" */ '../views/About'),
+      meta:{title:'关于我'}
+    },
+    {
+      path: '/detail',
+      name: 'Detail',
+      component: () => import(/* webpackChunkName: "Detail" */ '../views/Detail'),
       meta:{title:'生活'}
     },
   ]

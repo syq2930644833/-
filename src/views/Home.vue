@@ -52,15 +52,6 @@ export default {
         const body = document.getElementsByClassName('body')[0]
         this.viewWidth = document.body.clientWidth
         this.viewHeight = body.clientHeight
-        // window.addEventListener('scroll',this.handleScroll)
-        window.onresize = () => {
-            return (() => {
-                this.viewWidth = document.body.clientWidth
-            })()
-        }
-        // this.$on('hook:beforeDestroy',()=>{
-        //     window.removeEventListener('scroll',this.handleScroll)
-        // })
     },
 
     methods: {
@@ -88,18 +79,7 @@ export default {
         clickArrow(){
             scrollTo(this.viewHeight,1800)
         }
-    },
-    watch: {
-        viewWidth(newVal){
-            if(newVal <= 500){
-                this.$store.dispatch('home/clientWidthChange', 3)
-            }else if( newVal > 1000 ){
-                this.$store.dispatch('home/clientWidthChange', 1)
-            }else{
-                this.$store.dispatch('home/clientWidthChange', 2)
-            }
-        }
-    },
+    }
 }
 </script>
 

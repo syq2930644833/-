@@ -12,8 +12,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://localhost:8088',
-        // target: 'http://shaoyiqiao.online/api',
+        // target: 'http://localhost:8088',
+        target: 'http://shaoyiqiao.online/api',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
@@ -58,7 +58,7 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: true,
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 

@@ -6,6 +6,7 @@ import router from './router'
 import 'lib-flexible/flexible.js'
 import store from './store'
 import axios from 'axios'
+import dayjs from 'dayjs'
 
 Vue.config.productionTip = false
 
@@ -16,9 +17,15 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+Vue.use(mavonEditor)
+
 
 // axios.defaults.baseURL = '/api'
 // Vue.prototype.axios = axios;
+
+Vue.prototype.dayjs = dayjs;
 
 /* eslint-disable no-new */
 new Vue({

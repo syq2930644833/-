@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <Head v-show="headShow" />
-    <router-view/>
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive" />
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive" />
   </div>
 </template>
 
@@ -12,7 +15,8 @@ export default {
   components:{ Head },
   data() {
     return {
-      
+      viewWidth:0,
+      viewHeight:0,
     }
   },
   computed: {
@@ -21,6 +25,33 @@ export default {
     },
     footShow(){
         return this.$store.getters.footShow
+    },
+    clientWidth(){
+        return this.$store.getters.clientWidth
+    }
+  },
+  mounted() {
+    this.viewWidth = document.body.clientWidth
+    this.viewHeight = document.body.clientHeight
+    window.onresize = () => {
+        return (() => {
+            this.viewWidth = document.body.clientWidth
+        })()
+    }
+    // this.$on('hook:beforeDestroy',()=>{
+    //     window.removeEventListener('scroll',this.handleScroll)
+    // })
+  },
+  watch: {
+    viewWidth(newVal){
+      console.log('newVal: ', newVal);
+      if(newVal <= 500){
+          this.$store.dispatch('home/clientWidthChange', 3)
+      }else if( newVal > 1000 ){
+          this.$store.dispatch('home/clientWidthChange', 1)
+      }else{
+          this.$store.dispatch('home/clientWidthChange', 2)
+      }
     }
   },
 }
