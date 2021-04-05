@@ -1,27 +1,27 @@
 <template>
     <div class="detail" :class="{'mobileDetail':clientWidth != 1}">
-        <div class="message" :class="{'mobileMsg':clientWidth != 1}">
-            <h1>
-                {{articleDetail.title}}
-            </h1>
-            <div class="author">
-                <i class="el-icon-user"></i>{{articleDetail.author}}
+            <div class="message" :class="{'mobileMsg':clientWidth != 1}">
+                <h1>
+                    {{articleDetail.title}}
+                </h1>
+                <div class="author">
+                    <i class="el-icon-user"></i>{{articleDetail.author}}
+                </div>
+                <div class="introduction">
+                    {{articleDetail.introduction}}
+                </div>
             </div>
-            <div class="introduction">
-                {{articleDetail.introduction}}
-            </div>
-        </div>
-        <mavon-editor
-            class="md"
-            :class="{'mobileMd':clientWidth != 1}"
-            :value="commentHtml"
-            :subfield="false"
-            :defaultOpen="'preview'"
-            :toolbarsFlag="false"
-            :editable="false"
-            :scrollStyle="true"
-            :ishljs="true"
-        />
+            <mavon-editor
+                class="md"
+                :class="{'mobileMd':clientWidth != 1}"
+                :value="commentHtml"
+                :subfield="false"
+                :defaultOpen="'preview'"
+                :toolbarsFlag="false"
+                :editable="false"
+                :scrollStyle="true"
+                :ishljs="true"
+            />
     </div>
 </template>
 
@@ -30,8 +30,8 @@ import { findArticlebyId } from "../../api/test/index";
 export default {
     data() {
         return {
-           articleDetail: null ,
-           commentHtml: null,
+           articleDetail: {} ,
+           commentHtml: '',
         }
     },
     created() {
@@ -74,9 +74,11 @@ export default {
     padding: 20px 0;
     overflow: auto;
     .message{
-        padding-left: 20px;
+        width: 1200px;
+        // width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
         text-align: start;
-        width: 1180px;
         background: rgb(251, 251, 251);
         .author{
             font-size: 30px;
@@ -94,7 +96,7 @@ export default {
         }
     }
     .mobileMsg{
-        width: 100%;
+        width: 100vw;
     }
     .md{
         width: 1200px;

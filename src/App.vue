@@ -44,7 +44,7 @@ export default {
   },
   watch: {
     viewWidth(newVal){
-      console.log('newVal: ', newVal);
+      // console.log('newVal: ', newVal);
       if(newVal <= 500){
           this.$store.dispatch('home/clientWidthChange', 3)
       }else if( newVal > 1000 ){
